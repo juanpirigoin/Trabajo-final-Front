@@ -1,0 +1,58 @@
+.contenedor-asistencia {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    padding: 5px;
+}
+
+.contenedor-botones {
+    display: flex;
+    flex-direction: column;
+    border: 2px gray solid;
+    border-radius: 5px;
+    width: 300px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.contenedor-fechas {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
+
+.fecha-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px gray solid;
+    border-radius: 5px;
+    background-color: lightgray;
+    width: auto;
+    margin: 5px;
+    padding: 5px 40px;
+}
+
+.div-alumno {
+    display: flex;
+    flex-direction: row;
+    border: 2px gray solid;
+    border-radius: 5px;
+    width: auto;
+    margin: 5px;
+    padding: 5px;
+}
+
+button {
+    margin: 5px auto;
+}
+
+p {
+    display: block;
+}
+li {
+  display: inline-block;
+  margin-right: 10px; 
+}

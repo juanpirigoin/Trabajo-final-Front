@@ -1,0 +1,17 @@
+.contenedor-botones {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+    border: 2px gray solid;
+    border-radius: 5px;
+    width: 300px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.boton {
+    padding: 8px;
+    background-color: rgb(98, 98, 236);
+    border-radius: 5px;
+    width: 100px;
+}
