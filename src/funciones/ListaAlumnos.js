@@ -1,8 +1,6 @@
-import React from 'react'
-import { useState } from 'react';
 
-function ListaAlumnos(Alumnos) {
-    const nombres = [...new Set(aAumnos.map(a => a.nombre))];
+function ListaAlumnos({Alumnos}) {
+    const nombres = [...new Set(Alumnos.map(a => a.nombre))];
   return nombres
 }
 

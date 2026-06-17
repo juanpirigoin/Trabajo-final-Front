@@ -9,7 +9,7 @@ import ListaAlumnos from "../funciones/ListaAlumnos";
 
 function Notas() {
     const [RegistrosNotas, setRegistrosNotas] = useObtenerRegistros();
-    const Alumnos = ListaAlumnos(RegistrosNotas);
+    const Alumnos = ListaAlumnos({Alumnos: RegistrosNotas});
     
     console.log(RegistrosNotas);
     
@@ -25,11 +25,11 @@ function Notas() {
                 />
                 <div className="contenedor-fechas">
                     <Encabezado srcimagen={notas} titulo={"Notas"} />
-                    {RegistrosNotas.map((alumno, index) =>
+                    {Alumnos.map((alumno, index) =>
                         <div key={index} className='div-alumno'>
-                            <p>{alumno.NombreAlumno}</p>
+                            <p>{alumno}</p>
                         </div>
-                    )}
+                    )} 
 
                 </div>
             </div>
