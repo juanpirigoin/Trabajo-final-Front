@@ -21,7 +21,7 @@
     background-color: white;
 }
 
-.fecha-info {
+.encabezado {
     display: flex;
     flex-direction: row;
     align-items: center;

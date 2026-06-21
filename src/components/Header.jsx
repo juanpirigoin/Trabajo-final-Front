@@ -17,4 +17,4 @@ function Header() {
   )
 }
 
-export default Nav
+export default Header

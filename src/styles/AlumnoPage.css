@@ -1,0 +1,46 @@
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    padding: 5px;
+    min-height: 97vh; 
+}
+.contenedor-alumnos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
+.div-alumno {
+    display: flex;
+    flex-direction: row;
+    border: 2px gray solid;
+    border-radius: 5px;
+    width: auto;
+    min-height: 70px;
+    margin: 5px;
+    padding: 5px;
+    align-items: center;
+}
+
+.encabezado {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px gray solid;
+    border-radius: 5px;
+    background-color: lightgray;
+    width: auto;
+    margin: 5px;
+    padding: 5px 40px;
+}
+
+img {
+    height: 100%;
+    max-width: 200px;
+    margin: 8px;
+}
+button {
+    margin: 5px auto;
+}

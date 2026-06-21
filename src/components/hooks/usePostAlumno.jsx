@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
-function usePostAsistencias() {
-    const [error, setError] = useState(null)
-
-    const postAsistencia = async (formData) => {
+function usePostAlumno() {
+  const [error, setError] = useState(null)
+    
+    const postAlumno = async (formData) => {
         setError(null)
-        
+
         try {
             const response = await fetch("/api", {
                 // Define el metodo http
@@ -15,24 +15,24 @@ function usePostAsistencias() {
                     "Content-type": "application/json"
                 },
                 // Body es donde viaja la informacion
-                body: JSON.stringify({ action: "asistencias", ...formData })
+                body: JSON.stringify({ action: "alumnos", ...formData })
             })
 
-            if (!response.ok) {
-                throw new Error(`Error al cargar la asistencia, ${response.status}`)
+            if(!response.ok){
+                throw new Error(`Error al cargar el alumno, ${response.status}`)
             }
 
             const data = await response.json()
-            console.log({ data })
+            console.log({data})
             // Data posee los datos de respuesta de la API
             return data
         } catch (error) {
-            console.error("Error al cargar la asistencia", error)
+            console.error("Error al cargar el alumno", error)
             setError(error)
             return null
         }
     }
-    return { error, postAsistencia }
+    return {error, postAlumno}
 }
 
-export default usePostAsistencias
+export default usePostAlumno

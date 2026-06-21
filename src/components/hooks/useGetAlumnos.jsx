@@ -1,15 +1,15 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 
-function useGetAsistencias() {
+function useGetAlumnos() {
 
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
-    const [asistencias, setAsistencias] = useState([])
+    const [alumnos, setAlumnos] = useState([])
     // const url = "/api"  
-    const url = "/api?action=asistencias"; 
+    const url = "/api?action=alumnos"; 
 
-    const getAsistencias = async () => {
+    const getAlumnos = async () => {
         try {
             setLoading(true)
             setError(null)
@@ -17,27 +17,27 @@ function useGetAsistencias() {
            const response = await fetch(url)
 
            if(!response.ok){
-            throw new Error("Error al traer los registros de asistencia", response.status)
+            throw new Error("Error al traer los registros de alumnos", response.status)
            }
 
            const data = await response.json()
 
-           setAsistencias(data)
+           setAlumnos(data)
 
         } catch (error) {
             console.error(error)
             setError(error)
-            setAsistencias([])
+            setAlumnos([])
         } finally {
             setLoading(false)
         }
     }
 
    useEffect(() => {
-        getAsistencias(url)
+        getAlumnos(url)
     }, [])
 
-    return {asistencias, error, loading}
+    return {alumnos, error, loading}
 }
 
-export default useGetAsistencias
+export default useGetAlumnos
