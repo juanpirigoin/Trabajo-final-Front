@@ -1,8 +1,9 @@
 import React from 'react';
-import "../styles/nav.css";
+import "../styles/header.css";
 
-function Nav() {
+function Header() {
   return (
+    <header>
     <div className='navbar'>
       <i className="fa-solid fa-school" style={{ color: "rgb(65, 0, 255)", display: "block" }}></i>
       <ul>
@@ -12,6 +13,7 @@ function Nav() {
         <li>Agenda</li>
       </ul>
     </div>
+    </header>
   )
 }
 

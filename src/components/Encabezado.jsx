@@ -1,5 +1,5 @@
 import React from 'react'
-import FechaActual from "../funciones/FuncionesFecha";
+import FechaActual from "../funciones/FechaActual";
 
 function Encabezado({srcimagen, titulo}) {
     // corregir fecha

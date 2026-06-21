@@ -1,7 +1,4 @@
 
-function FuncionesFecha() {
-    return
-}
 
 function FechaActual() {
     const fecha = new Date().toLocaleDateString("es-AR", {
