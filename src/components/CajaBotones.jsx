@@ -1,11 +1,13 @@
 import React from 'react';
-import "../styles/cajabotones.css";
+import "../styles/CajaBotones.css";
 
 function CajaBotones({ Botones }) {
   return (
-    <div className='contenedor-botones'>
+    <div className="sidebar">
       {Botones.map((boton, index) => (
-        <button className="boton" key={index} onClick={boton.onClick}>{boton.nombre}</button>
+        <button className="btn" key={index} onClick={boton.onClick}>
+          {boton.nombre}
+        </button>
       ))}
     </div>
   );

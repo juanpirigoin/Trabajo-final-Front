@@ -1,6 +1,6 @@
 .navbar {
     display: flex;
-    background-color: rgb(90, 99, 97);
+    background-color: var(--color-primary);
     justify-content: space-between;
     align-items: center;
     padding: 15px;
@@ -8,7 +8,8 @@
 }
 
 .navbar i {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-right: 5px;
 
 }
 
@@ -16,9 +17,20 @@
     display: flex;
     list-style-type: none;
     margin: 5px;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .navbar li {
     width: auto;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.navbar a:hover {
+    color: rgb(180, 190, 255);
 }

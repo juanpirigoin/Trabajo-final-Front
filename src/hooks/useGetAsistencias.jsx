@@ -1,15 +1,15 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 
-function useGetNotas() {
+function useGetAsistencias() {
 
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
-    const [notas, setNotas] = useState([])
+    const [asistencias, setAsistencias] = useState([])
     // const url = "/api"  
-    const url = "/api?action=notas"; 
+    const url = `${import.meta.env.VITE_API_URL}?action=asistencias`; 
 
-    const getNotas = async () => {
+    const getAsistencias = async () => {
         try {
             setLoading(true)
             setError(null)
@@ -17,27 +17,27 @@ function useGetNotas() {
            const response = await fetch(url)
 
            if(!response.ok){
-            throw new Error("Error al traer los registros de notas", response.status)
+            throw new Error("Error al traer los registros de asistencia", response.status)
            }
 
            const data = await response.json()
 
-           setNotas(data)
+           setAsistencias(data)
 
         } catch (error) {
             console.error(error)
             setError(error)
-            setNotas([])
+            setAsistencias([])
         } finally {
             setLoading(false)
         }
     }
 
    useEffect(() => {
-        getNotas(url)
+        getAsistencias(url)
     }, [])
 
-    return {notas, error, loading}
+    return {asistencias, error, loading}
 }
 
-export default useGetNotas
+export default useGetAsistencias

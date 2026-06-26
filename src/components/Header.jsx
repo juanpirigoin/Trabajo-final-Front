@@ -1,20 +1,45 @@
 import React from 'react';
-import "../styles/header.css";
+import { NavLink } from 'react-router-dom';
+import "../styles/Header.css";
 
 function Header() {
   return (
-    <header>
-    <div className='navbar'>
-      <i className="fa-solid fa-school" style={{ color: "rgb(65, 0, 255)", display: "block" }}></i>
-      <ul>
-        <li>Alumnos</li>
-        <li>Asistencia</li>
-        <li>Notas</li>
-        <li>Agenda</li>
-      </ul>
-    </div>
+    <header className="navbar">
+      <NavLink to="/" className="navbar-brand" end>
+        <i className="fa-solid fa-school navbar-logo-icon"></i>
+        <span className="navbar-brand-name">Gestión Escolar</span>
+      </NavLink>
+
+      <nav>
+        <ul className="navbar-links">
+          <li>
+            <NavLink to="/alumnos" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+              <i className="fa-solid fa-graduation-cap"></i>
+              Alumnos
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/asistencia" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+              <i className="fa-solid fa-calendar-check"></i>
+              Asistencia
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/notas" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+              <i className="fa-solid fa-file-invoice"></i>
+              Notas
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} end>
+              <i className="fa-solid fa-calendar-days"></i>
+              Agenda
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

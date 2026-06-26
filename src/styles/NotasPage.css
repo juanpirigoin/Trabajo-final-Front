@@ -1,0 +1,68 @@
+/* ===================================================
+   NotasPage.css — estilos específicos de Notas
+   Requiere: global.css para las variables y clases base
+   =================================================== */
+
+/* Card de alumno con sus notas */
+.nota-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+
+.nota-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.nota-card h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Estadísticas de notas */
+.nota-stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.nota-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.nota-stat-item strong {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nota-stat-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.nota-stat-value.buena {
+  color: var(--color-success);
+}
+
+.nota-stat-value.regular {
+  color: var(--color-warning);
+}
+
+.nota-stat-value.mala {
+  color: var(--color-danger);
+}

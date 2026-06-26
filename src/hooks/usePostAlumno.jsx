@@ -7,7 +7,7 @@ function usePostAlumno() {
         setError(null)
 
         try {
-            const response = await fetch("/api", {
+            const response = await fetch(import.meta.env.VITE_API_URL, {
                 // Define el metodo http
                 method: "POST",
                 // Define el tipo de informacion que viaja, en este caso es texto

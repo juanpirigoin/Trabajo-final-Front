@@ -1,17 +1,7 @@
-.contenedor-botones {
-    display: flex;
-    flex-direction: column;
-    background-color: lightgray;
-    border: 2px gray solid;
-    border-radius: 5px;
-    width: 300px;
-    margin: 5px;
-    padding: 30px 5px;
-}
+/* ===================================================
+   CajaBotones.css — sidebar de navegación lateral
+   Requiere: global.css para las variables y clases base
+   =================================================== */
 
-.boton {
-    padding: 8px;
-    background-color: rgb(146, 201, 17);
-    border-radius: 5px;
-    width: 100px;
-}
+/* El contenedor lateral ya usa .sidebar de global.css */
+/* Estos son estilos adicionales o de override si fueran necesarios */

@@ -1,83 +1,186 @@
-.contenedor {
-    display: flex;
-    flex-direction: row;
-    margin: 5px;
-    padding: 5px;
-    min-height: 97vh; 
+/* ===================================================
+   AsistenciaPage.css — estilos específicos de Asistencia
+   Requiere: global.css para las variables y clases base
+   =================================================== */
+
+/* Barra de fechas (sticky al hacer scroll) */
+.fechas-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow-card);
 }
 
-
-
-.contenedor-fechas {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    
+.fechas-bar p {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  width: 150px;
+  margin: 0;
+  white-space: nowrap;
 }
 
-.fechas {
-    position: sticky;
-    top: 0;
-    background-color: white;
+.fechas-bar ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
 }
 
-.encabezado {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    border: 2px gray solid;
-    border-radius: 5px;
-    background-color: lightgray;
-    width: auto;
-    margin: 5px;
-    padding: 5px 40px;
-}
-
-.div-alumno {
-    display: flex;
-    flex-direction: row;
-    border: 2px gray solid;
-    border-radius: 5px;
-    width: auto;
-    min-height: 70px;
-    margin: 5px;
-    padding: 5px;
-    align-items: center;
-}
-
-.corto {
-    padding-left: 20px;
-    gap: 20px;
-    width: 300px;
-}
-
-button {
-    margin: 5px auto;
-}
-
-p{
-    display: block;
-    margin-left: 10px;
-    width: 200px;
-    font-weight: bold;
-}
-
-label {
-    display: block;
-    margin: auto 10px;
-    
-    font-weight: bold;
-}
-
-ul {
-    display: "flex";
-    gap: "10px";
-}
-
-li {
+.fechas-bar li {
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
   display: inline-block;
-  /* margin-right: 10px;  */
+  width: 60px;
   text-align: center;
-  width: 40px;  
+}
+
+/* Selector de fecha para tomar asistencia */
+.fecha-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-card);
+}
+
+.fecha-selector label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.fecha-selector input[type="date"] {
+  padding: 7px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  cursor: pointer;
+  width: auto;
+  display: inline;
+}
+
+.fecha-selector input[type="date"]:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(65, 0, 255, 0.1);
+}
+
+/* Card de alumno en modo asistencia */
+.asistencia-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  margin-bottom: 8px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+
+.asistencia-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.asistencia-card p {
+  flex: 1;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin: 0;
+  width: auto;
+}
+
+/* Iconos de asistencia clickeables */
+.asistencia-icons {
+  display: flex;
+  gap: 18px;
+  font-size: 1.3rem;
+}
+
+.icon-presente {
+  color: var(--color-success);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.icon-presente:hover {
+  transform: scale(1.25);
+}
+
+.icon-ausente {
+  color: var(--color-danger);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.icon-ausente:hover {
+  transform: scale(1.25);
+}
+
+/* Card de alumno en modo historial de asistencia */
+.historial-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.historial-card p {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  width: 150px;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.historial-card ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+}
+
+.historial-card li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:60px;
+  height: 32px;
+  /* background-color: var(--color-bg); */
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
 }

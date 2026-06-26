@@ -1,46 +1,97 @@
-.contenedor {
-    display: flex;
-    flex-direction: row;
-    margin: 5px;
-    padding: 5px;
-    min-height: 97vh; 
-}
-.contenedor-alumnos {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    
-}
-.div-alumno {
-    display: flex;
-    flex-direction: row;
-    border: 2px gray solid;
-    border-radius: 5px;
-    width: auto;
-    min-height: 70px;
-    margin: 5px;
-    padding: 5px;
-    align-items: center;
+/* ===================================================
+   AlumnoPage.css — estilos específicos de la sección Alumnos
+   Requiere: global.css para las variables y clases base
+   =================================================== */
+
+/* Grid de cards de alumnos */
+.alumnos-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.encabezado {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    border: 2px gray solid;
-    border-radius: 5px;
-    background-color: lightgray;
-    width: auto;
-    margin: 5px;
-    padding: 5px 40px;
+/* Card individual de alumno */
+.alumno-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
 }
 
-img {
-    height: 100%;
-    max-width: 200px;
-    margin: 8px;
+.alumno-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-primary);
 }
-button {
-    margin: 5px auto;
+
+/* Datos del alumno dentro de la card */
+.alumno-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 4px;
+}
+
+.alumno-info h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.alumno-info p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  width: auto;
+  font-weight: 400;
+}
+
+/* Botón Editar dentro de la card */
+.btn-editar {
+  padding: 7px 18px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.btn-editar:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+/* Formulario de Modificar Alumno */
+.modificar-form-wrapper {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  max-width: 520px;
+}
+
+.modificar-form-wrapper h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
 }

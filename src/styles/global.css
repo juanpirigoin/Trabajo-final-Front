@@ -1,0 +1,246 @@
+/* ===================================================
+   SISTEMA DE DISEÑO GLOBAL - Gestión Escolar
+   Variables CSS y estilos base compartidos
+   =================================================== */
+
+/* --- Variables --- */
+:root {
+  --color-primary:    #4100FF;
+  --color-primary-hover: #2d00b5;
+  --color-accent:     #00c98d;
+  --color-danger:     #e74c3c;
+  --color-success:    #2ecc71;
+  --color-warning:    #f39c12;
+
+  --color-bg:         #f0f2f8;
+  --color-surface:    #ffffff;
+  --color-border:     #d1d9e6;
+
+  --color-text:       #2c3e50;
+  --color-text-muted: #6c7a8d;
+
+  --radius-sm:        6px;
+  --radius-md:        10px;
+  --radius-lg:        14px;
+
+  --shadow-card:      0 2px 12px rgba(0, 0, 0, 0.07);
+  --shadow-card-hover: 0 6px 24px rgba(65, 0, 255, 0.12);
+
+  --transition:       all 0.2s ease-in-out;
+  --font-family:      'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
+/* --- Layout principal de cada page --- */
+.page-layout {
+  display: flex;
+  flex-direction: row;
+  min-height: calc(100vh - 64px);
+  gap: 0;
+}
+
+/* --- Sidebar de botones --- */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  width: 200px;
+  min-width: 200px;
+  padding: 24px 12px;
+  gap: 10px;
+}
+
+/* --- Área de contenido principal --- */
+.page-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px;
+  overflow-x: auto;
+}
+
+/* --- Encabezado de sección (título + fecha + ícono) --- */
+.encabezado {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #7b5bf5 100%);
+  color: white;
+  border-radius: var(--radius-md);
+  padding: 16px 28px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-card);
+}
+
+/* .encabezado img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  margin: 0;
+} */
+
+.encabezado i{
+  font-size: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.encabezado h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.encabezado h2 {
+  font-size: 0.95rem;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* --- Cards generales --- */
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* --- Botones de acción generales --- */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+/* --- Formularios --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 500px;
+}
+
+form label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  display: block;
+}
+
+form input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-family: var(--font-family);
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: var(--transition);
+  display: block;
+}
+
+form input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(65, 0, 255, 0.1);
+}
+
+form button[type="submit"] {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 11px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin: 0;
+}
+
+form button[type="submit"]:hover {
+  background-color: var(--color-primary-hover);
+}
+
+form button[type="reset"] {
+  background-color: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 11px 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  margin: 0;
+}
+
+form button[type="reset"]:hover {
+  background-color: var(--color-border);
+}
+
+/* --- Estados de carga / error --- */
+.status-msg {
+  padding: 20px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* --- Imágenes de contenido (fotos de alumno) --- */
+.img-alumno {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-border);
+  flex-shrink: 0;
+}

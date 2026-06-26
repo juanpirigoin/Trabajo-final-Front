@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import alumnos from "../assets/alumnos.png";
+import "../styles/global.css";
 import "../styles/AlumnoPage.css";
 import CajaBotones from "../components/CajaBotones";
 import Encabezado from "../components/Encabezado";
-import FechaActual from "../funciones/FechaActual";
 import AlumnoCards from "../components/AlumnoCards";
 import CreateAlumnoForm from "../components/CreateAlumnoForm";
-import ModificarAlumno from "../components/ModificarAlumno"; // 👈 nuevo form
+import ModificarAlumno from "../components/ModificarAlumno";
 
 function AlumnoPage() {
   const [mostrarAlumnos, setMostrarAlumnos] = useState(false);
   const [crearAlumno, setCrearAlumno] = useState(false);
   const [modificarAlumno, setModificarAlumno] = useState(false);
   const [alumnoSeleccionado, setAlumnoSeleccionado] = useState(null);
-
   const [titulo, setTitulo] = useState("");
 
   const MostrarAlumnos = () => {
@@ -39,17 +38,21 @@ function AlumnoPage() {
   };
 
   const botones = [
-    { nombre: "Mostrar Alumnos", onClick: () => MostrarAlumnos() },
+    { nombre: "Ver Alumnos", onClick: () => MostrarAlumnos() },
     { nombre: "Agregar Alumno", onClick: () => AgregarAlumnos() }
   ];
 
   return (
-    <div className="contenedor">
+    <div className="page-layout">
       <CajaBotones Botones={botones} />
-      <div className="contenedor-alumnos">
-        <Encabezado srcimagen={alumnos} titulo={titulo} />
+      <div className="page-content">
+        <Encabezado claseIcono="fa-solid fa-graduation-cap" titulo={titulo || "Alumnos"} />
         {mostrarAlumnos && <AlumnoCards onEditar={EditarAlumno} />}
-        {crearAlumno && <CreateAlumnoForm />}
+        {crearAlumno && (
+          <div className="modificar-form-wrapper">
+            <CreateAlumnoForm />
+          </div>
+        )}
         {modificarAlumno && alumnoSeleccionado && (
           <ModificarAlumno
             alumno={alumnoSeleccionado}

@@ -1,12 +1,12 @@
 import React from 'react'
-import FechaActual from "../funciones/FechaActual";
+import FechaActual from "../utils/FechaActual";
 
-function Encabezado({srcimagen, titulo}) {
+function Encabezado({claseIcono, titulo}) {
     // corregir fecha
     const fechaCustom = FechaActual();
     return (
         <div className="encabezado">
-            <img src={srcimagen} alt=" " style={{ width: "50px" }} />
+            <i className={claseIcono}></i>
             <h1>{titulo}</h1>
             <h2>{fechaCustom}</h2>
         </div>
