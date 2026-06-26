@@ -6,28 +6,37 @@ import Encabezado from "../components/Encabezado";
 import FechaActual from "../funciones/FechaActual";
 import AlumnoCards from "../components/AlumnoCards";
 import CreateAlumnoForm from "../components/CreateAlumnoForm";
-
-
+import ModificarAlumno from "../components/ModificarAlumno"; // 👈 nuevo form
 
 function AlumnoPage() {
-  const [mostrarAlumnos, setMostrarAlumnos
-  ] = useState(false)
-  const [crearAlumno, setCrearAlumno
-  ] = useState(false)
-  const [titulo, setTitulo] = useState("")
+  const [mostrarAlumnos, setMostrarAlumnos] = useState(false);
+  const [crearAlumno, setCrearAlumno] = useState(false);
+  const [modificarAlumno, setModificarAlumno] = useState(false);
+  const [alumnoSeleccionado, setAlumnoSeleccionado] = useState(null);
+
+  const [titulo, setTitulo] = useState("");
 
   const MostrarAlumnos = () => {
     setMostrarAlumnos(true);
-    setTitulo("Alumnos")
+    setTitulo("Alumnos");
     setCrearAlumno(false);
-  }
+    setModificarAlumno(false);
+  };
 
   const AgregarAlumnos = () => {
     setMostrarAlumnos(false);
-    setTitulo("Agregar alumno")
+    setTitulo("Agregar alumno");
     setCrearAlumno(true);
-  }
+    setModificarAlumno(false);
+  };
 
+  const EditarAlumno = (alumno) => {
+    setAlumnoSeleccionado(alumno);
+    setMostrarAlumnos(false);
+    setCrearAlumno(false);
+    setModificarAlumno(true);
+    setTitulo("Modificar alumno");
+  };
 
   const botones = [
     { nombre: "Mostrar Alumnos", onClick: () => MostrarAlumnos() },
@@ -39,11 +48,17 @@ function AlumnoPage() {
       <CajaBotones Botones={botones} />
       <div className="contenedor-alumnos">
         <Encabezado srcimagen={alumnos} titulo={titulo} />
-        {mostrarAlumnos&&<AlumnoCards/>}
-        {crearAlumno&&<CreateAlumnoForm/>}
+        {mostrarAlumnos && <AlumnoCards onEditar={EditarAlumno} />}
+        {crearAlumno && <CreateAlumnoForm />}
+        {modificarAlumno && alumnoSeleccionado && (
+          <ModificarAlumno
+            alumno={alumnoSeleccionado}
+            onClose={() => setModificarAlumno(false)}
+          />
+        )}
       </div>
     </div>
   );
 }
 
-export default AlumnoPage
+export default AlumnoPage;

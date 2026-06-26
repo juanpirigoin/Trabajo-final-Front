@@ -11,9 +11,14 @@
     font-size: 2rem;
 
 }
+
 .navbar ul {
     display: flex;
     list-style-type: none;
     margin: 5px;
     gap: 1rem;
+}
+
+.navbar li {
+    width: auto;
 }
