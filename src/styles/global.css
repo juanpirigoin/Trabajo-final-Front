@@ -42,6 +42,9 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   min-height: 100vh;
+  background-image: url('../assets/fondo-escuela.jpg') ;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: overlay; 
 }
 
 /* --- Layout principal de cada page --- */
@@ -60,7 +63,7 @@ body {
   border-right: 1px solid var(--color-border);
   width: 200px;
   min-width: 200px;
-  padding: 24px 12px;
+  padding: 24px 24px;
   gap: 10px;
 }
 
