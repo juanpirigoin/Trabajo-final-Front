@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useUpdateAlumno from "../hooks/useUpdateAlumno";
+import useUpdateAlumno from "../hooks/alumnos/useUpdateAlumno";
 
 function ModificarAlumno({ alumno, onClose }) {
   const { updateAlumno, loading, error } = useUpdateAlumno();
@@ -57,7 +57,7 @@ function ModificarAlumno({ alumno, onClose }) {
           <button type="submit" disabled={loading}>
             {loading ? "Actualizando..." : "Guardar cambios"}
           </button>
-          <button type="button" onClick={onClose} className="btn-danger" style={{padding: "11px 20px", borderRadius: "var(--radius-sm)", border: "none", cursor: "pointer"}}>Cancelar</button>
+          <button type="button" onClick={onClose} className="btn-danger" style={{ padding: "11px 20px", borderRadius: "var(--radius-sm)", border: "none", cursor: "pointer" }}>Cancelar</button>
         </div>
         {error && <p style={{ color: "var(--color-danger)", fontSize: "0.9rem" }}>{error}</p>}
       </form>

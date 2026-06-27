@@ -1,6 +1,6 @@
 import React from 'react';
-import useGetAsistencias from "../hooks/useGetAsistencias";
-import useGetAlumnos from "../hooks/useGetAlumnos";
+import useGetAsistencias from "../hooks/asistencias/useGetAsistencias.jsx";
+import useGetAlumnos from "../hooks/alumnos/useGetAlumnos.jsx";
 import cambiarFormatoFecha from "../utils/CambiarFormatoFecha.js";
 
 function AsistenciaCards() {

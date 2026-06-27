@@ -1,6 +1,6 @@
 import React from 'react';
-import useGetAlumnos from "../hooks/useGetAlumnos";
-import useGetNotas from '../hooks/useGetNotas';
+import useGetAlumnos from "../hooks/alumnos/useGetAlumnos";
+import useGetNotas from '../hooks/notas/useGetNotas';
 import Calculos from './Calculos';
 
 function NotasCards() {

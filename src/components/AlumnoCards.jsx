@@ -1,5 +1,5 @@
 import React from "react";
-import useGetAlumnos from "../hooks/useGetAlumnos";
+import useGetAlumnos from "../hooks/alumnos/useGetAlumnos";
 
 function AlumnoCards({ onEditar }) {
   const { error, loading, alumnos = [] } = useGetAlumnos();

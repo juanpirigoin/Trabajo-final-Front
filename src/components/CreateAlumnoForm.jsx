@@ -1,4 +1,4 @@
-import usePostAlumno from '../hooks/usePostAlumno';
+import usePostAlumno from '../hooks/alumnos/usePostAlumno';
 import React, { useState } from "react";
 
 function CreateAlumnoForm() {

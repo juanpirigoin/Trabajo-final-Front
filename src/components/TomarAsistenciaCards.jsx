@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import useGetAsistencias from "../hooks/useGetAsistencias";
-import usePostAsistencias from "../hooks/usePostAsistencias";
+import useGetAsistencias from "../hooks/asistencias/useGetAsistencias";
+import usePostAsistencias from "../hooks/asistencias/usePostAsistencias";
 import FechaActual from '../utils/FechaActual';
+import useGetAlumnos from "../hooks/alumnos/useGetAlumnos";
 
 function TomarAsistenciaCards() {
   const { error: errorGet, loading, asistencias = [] } = useGetAsistencias();
   const { postAsistencia, error: errorPost } = usePostAsistencias();
+  const { error: errorAlumnos, loading: loadingAlumnos, alumnos = [] } = useGetAlumnos();
 
   const hoy = FechaActual();
   const [dd, mm, yyyy] = hoy.split("/");
@@ -17,11 +19,14 @@ function TomarAsistenciaCards() {
   );
 
   useEffect(() => {
-    if (asistencias.length) {
-      setAlumnosPendientes([...new Set(asistencias.map(a => a.IdAlumno))]);
+    if (alumnos.length) {
+      setAlumnosPendientes([...new Set(alumnos.map(a => a.IdAlumno))]);
     }
-  }, [asistencias]);
+  }, [alumnos]);
 
+  if (loadingAlumnos) return <p className="status-msg">Cargando alumnos...</p>;
+  if (errorAlumnos) return <p className="status-msg">Error: {errorAlumnos.message}</p>;
+  if (!alumnos.length) return <p className="status-msg">No hay registros</p>;
   if (loading) return <p className="status-msg">Cargando asistencias...</p>;
   if (errorGet) return <p className="status-msg">Error: {errorGet.message}</p>;
   if (!asistencias.length) return <p className="status-msg">No hay registros</p>;
@@ -30,7 +35,7 @@ function TomarAsistenciaCards() {
     const registro = { IdAlumno: idAlumno, Fecha: fecha, Estado: estado };
     const success = await postAsistencia(registro);
     if (success) {
-      alert(`Alumno ${idAlumno} marcado como ${estado}`);
+      // alert(`Alumno ${idAlumno} marcado como ${estado}`);
       setAlumnosPendientes(prev => prev.filter(id => id !== idAlumno));
     }
   };
@@ -60,7 +65,7 @@ function TomarAsistenciaCards() {
               className="fa-solid fa-x icon-ausente"
             ></i>
           </div>
-          <p>Alumno {idAlumno}</p>
+          <p>{alumnos.find((a) => a.IdAlumno === idAlumno)?.Nombre} {alumnos.find((a) => a.IdAlumno === idAlumno)?.Apellido}</p>
         </div>
       ))}
     </>

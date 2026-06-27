@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useUpdateAlumno from "../hooks/useUpdateAlumno"; // tu hook modificado
+import useUpdateAlumno from "../hooks/alumnos/useUpdateAlumno"; // tu hook modificado
 
 function UpdateAlumnoForm({ alumno }) {
   const { updateAlumno, loading, error } = useUpdateAlumno();
