@@ -1,5 +1,6 @@
 import usePostNota from '../hooks/notas/usePostNota';
 import React, { useState } from "react";
+import useGetAlumnos from "../hooks/alumnos/useGetAlumnos";
 
 function CreateNotaForm() {
     const [form, setForm] = useState({
@@ -8,8 +9,12 @@ function CreateNotaForm() {
         IdActividad: "",
         Nota: "",
     });
-
+    const [alumnoSeleccionado, setAlumnoSeleccionado] = useState("");
     const { error, postNota } = usePostNota();
+    const { error: errorAlumno, loading: loadingAlumnos, alumnos = [] } = useGetAlumnos();
+    if (loadingAlumnos) return <p className="status-msg">Cargando alumnos...</p>;
+    if (errorAlumno) return <p className="status-msg">Error: {errorAlumno.message}</p>;
+    if (!alumnos.length) return <p className="status-msg">No hay registros</p>;
 
     const handleInputChange = (e) => {
         const { name, value, type } = e.target;
@@ -19,6 +24,22 @@ function CreateNotaForm() {
         // console.log(form);
     };
 
+    const handleInputChangeListaAlumnos = (e) => {
+        const { value } = e.target;
+        setAlumnoSeleccionado(value);
+
+        // Buscar el ID del alumno seleccionado
+        const alumnoEncontrado = alumnos.find(
+            (a) => `${a.Nombre} ${a.Apellido}` === value
+        );
+
+        if (alumnoEncontrado) {
+            setForm((prevForm) => ({
+                ...prevForm,
+                IdAlumno: alumnoEncontrado.IdAlumno,
+            }));
+        }
+    };
     const handleFormSubmit = async (e) => {
         e.preventDefault()
         const success = await postNota(form)
@@ -29,21 +50,37 @@ function CreateNotaForm() {
                 IdActividad: "",
                 Nota: "",
             })
+            setAlumnoSeleccionado("");
         }
     }
 
     return (
         <form onSubmit={handleFormSubmit}>
             <label htmlFor="IdAlumno">Alumno: </label>
-            <input
+            <input list="listaAlumnos"
+                onChange={handleInputChangeListaAlumnos}
+                value={alumnoSeleccionado}
+                type="text"
+                required
+                name="IdAlumno"
+                id="IdAlumno" />
+            <datalist id="listaAlumnos">
+                {alumnos.map((alumno, i) => (
+                    <option
+                        key={i}
+                        value={`${alumno.Nombre} ${alumno.Apellido}`}
+                    />
+                ))}
+            </datalist>
+
+            {/* <input
                 onChange={handleInputChange}
                 value={form.IdAlumno}
                 type="text"
                 required
                 name="IdAlumno"
                 id="IdAlumno"
-            />
-            <br />
+            /> */}
             <label htmlFor="IdActividad">Actividad:</label>
             <input
                 onChange={handleInputChange}
@@ -53,7 +90,6 @@ function CreateNotaForm() {
                 name="IdActividad"
                 id="IdActividad"
             />
-            <br />
             <label htmlFor="Nota">Nota: </label>
             <input
                 onChange={handleInputChange}
@@ -63,7 +99,6 @@ function CreateNotaForm() {
                 name="Nota"
                 id="Nota"
             />
-
             <br />
             <button type="submit"> Cargar nota </button>
             <button type="reset"> Borrar form </button>
