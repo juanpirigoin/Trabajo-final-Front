@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://script.google.com/macros/s/AKfycbybf-MxCqKAjPl0XyBCpRhd37bGk-FGBkwlhc1FxSkBGkjizwRGKg9btCUdlMda0Oas/exec",
+        target: "https://script.google.com/macros/s/AKfycbzKrwp4GDPD3YLg3nwmFQiXZvzyGN8Uo4bE-UuJpCTDuJ0DeGLBdkq4Bp3TRXrMUBczmg/exec",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, "")
       }

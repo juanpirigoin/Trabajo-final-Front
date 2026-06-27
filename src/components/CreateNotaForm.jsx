@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 function CreateNotaForm() {
     const [form, setForm] = useState({
-    IdNota:"",
+        IdNota: "",
         IdAlumno: "",
         IdActividad: "",
         Nota: "",
@@ -16,7 +16,7 @@ function CreateNotaForm() {
         setForm({
             ...form, [name]: type === "number" ? parseInt(value) || 0 : value,
         });
-        console.log(form);
+        // console.log(form);
     };
 
     const handleFormSubmit = async (e) => {
@@ -63,7 +63,7 @@ function CreateNotaForm() {
                 name="Nota"
                 id="Nota"
             />
-            
+
             <br />
             <button type="submit"> Cargar nota </button>
             <button type="reset"> Borrar form </button>
