@@ -58,7 +58,7 @@ function CreateNotaForm() {
             <input
                 onChange={handleInputChange}
                 value={form.Nota}
-                type="number"
+                type="text"
                 required
                 name="Nota"
                 id="Nota"
