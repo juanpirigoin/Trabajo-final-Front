@@ -48,7 +48,6 @@ function CreateAlumnoForm() {
                 name="Nombre"
                 id="Nombre"
             />
-            <br />
             <label htmlFor="Apellido">Apellido:</label>
             <input
                 onChange={handleInputChange}
@@ -58,7 +57,6 @@ function CreateAlumnoForm() {
                 name="Apellido"
                 id="Apellido"
             />
-            <br />
             <label htmlFor="IdCurso">IdCurso: </label>
             <input
                 onChange={handleInputChange}
@@ -68,7 +66,6 @@ function CreateAlumnoForm() {
                 name="IdCurso"
                 id="IdCurso"
             />
-            <br />
             <label htmlFor="DNI">DNI: </label>
             <input
                 onChange={handleInputChange}
@@ -78,7 +75,6 @@ function CreateAlumnoForm() {
                 name="DNI"
                 id="DNI"
             />
-            <br />
             <label htmlFor="Foto">Foto: </label>
             <input
                 onChange={handleInputChange}
