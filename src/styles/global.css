@@ -152,12 +152,19 @@ body {
 }
 
 .btn-danger {
-  background-color: var(--color-danger);
+  background-color: var(--color-danger)!important
 }
 
 .btn-danger:hover {
   background-color: #c0392b;
 }
+
+/* no se si estsots botones van a ir */
+.btnFijo{
+  background-color: #66dbb8;
+  color: rgb(10, 10, 10);
+}
+
 
 /* --- Formularios --- */
 form {

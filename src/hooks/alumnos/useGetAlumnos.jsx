@@ -37,7 +37,7 @@ function useGetAlumnos() {
         getAlumnos(url)
     }, [])
 
-    return {alumnos, error, loading}
+    return {alumnos, error, loading, getAlumnos}
 }
 
 export default useGetAlumnos
