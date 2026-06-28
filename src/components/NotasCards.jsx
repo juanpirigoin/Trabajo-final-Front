@@ -1,7 +1,7 @@
 import React from 'react';
 import useGetAlumnos from "../hooks/alumnos/useGetAlumnos";
 import useGetNotas from '../hooks/notas/useGetNotas';
-import Calculos from './Calculos';
+import CrearCalculos from './CrearCalculos';
 
 function NotasCards() {
   const { error, loading, alumnos = [] } = useGetAlumnos();
@@ -20,7 +20,7 @@ function NotasCards() {
       {alumnos.map((alumno) => (
         <div key={alumno.IdAlumno} className="nota-card">
           <h2>{alumno.Nombre} {alumno.Apellido}</h2>
-          <Calculos Notas={notas} IdAlumno={alumno.IdAlumno} />
+          <CrearCalculos Notas={notas} IdAlumno={alumno.IdAlumno} />
         </div>
       ))}
     </>

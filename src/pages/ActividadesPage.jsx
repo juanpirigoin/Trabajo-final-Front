@@ -1,49 +1,41 @@
 import React, { useState } from "react";
-import alumnos from "../assets/alumnos.png";
 import "../styles/global.css";
 import "../styles/AlumnoPage.css";
 import CajaBotones from "../components/CajaBotones";
 import Encabezado from "../components/Encabezado";
-import AlumnoCards from "../components/AlumnoCards";
-import CreateAlumnoForm from "../components/CreateAlumnoForm";
-import ModificarAlumno from "../components/ModificarAlumno";
+import useGetActividades from "../hooks/actividades/useGetActividades";
+import useGetUnidades from "../hooks/unidades/useGetUnidades";
+import ActividadesCards from "../components/ActividadesCards";
 
 function ActividadesPage() {
-  const [mostrarActividades, setMostrarActividades] = useState(false);
-  
-  const MostrarActividades = () => {
-    setMostrarActividades(true);
-    setTitulo("Actividades");
-  };
 
-  const AgregarActividad = () => {
-    setMostrarActividades(false);
-    setTitulo("Agregar actividad");
-  };
+    const [titulo, setTitulo] = useState("");
+    const [mostrarListaActividades, setMostrarListaActividades] = useState(false);
 
-  const botones = [
-    { nombre: "Ver Actividades", onClick: () => MostrarActividades() },
-    { nombre: "Agregar Actividad", onClick: () => AgregarActividad() }
-  ];
+    const MostrarListaActividades = () => {
+        setMostrarListaActividades(true);
+        setTitulo("Lista de actividades");
+    };
 
-  return (
-    <div className="page-layout">
-      <CajaBotones Botones={botones} />
-      <div className="page-content">
-        <Encabezado claseIcono="fa-solid fa-graduation-cap" titulo={titulo || "Actividades"} />
-        
-        
-        {mostrarAlumnos && <AlumnoCards onEditar={EditarAlumno} />}
-        {crearAlumno && (
-          <div className="modificar-form-wrapper">
-            <CreateAlumnoForm />
-          </div>
-        )}
+    const AgregarActividad = () => {
+        setMostrarListaActividades(false);
+        setTitulo("Agregar actividad");
+    };
 
+    const botones = [
+        { nombre: "Ver Actividades", onClick: MostrarListaActividades },
+        { nombre: "Agregar Actividad", onClick: AgregarActividad }
+    ];
 
-      </div>
-    </div>
-  );
+    return (
+        <div className="page-layout">
+            <CajaBotones Botones={botones} />
+            <div className="page-content">
+                <Encabezado claseIcono="fa-solid fa-graduation-cap" titulo={titulo || "Actividades"} />
+                {mostrarListaActividades && <ActividadesCards />}
+            </div>
+        </div>
+    );
 }
 
 export default ActividadesPage;

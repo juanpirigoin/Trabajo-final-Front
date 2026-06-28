@@ -13,6 +13,12 @@ function Header() {
       <nav>
         <ul className="navbar-links">
           <li>
+            <NavLink to="/actividades" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+              <i class="fa-solid fa-list-ul"></i>
+              Actividades
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/alumnos" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
               <i className="fa-solid fa-graduation-cap"></i>
               Alumnos
@@ -28,12 +34,6 @@ function Header() {
             <NavLink to="/notas" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
               <i className="fa-solid fa-file-invoice"></i>
               Notas
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} end>
-              <i className="fa-solid fa-calendar-days"></i>
-              Agenda
             </NavLink>
           </li>
         </ul>

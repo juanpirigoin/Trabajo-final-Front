@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import Home from './pages/Home.jsx';
 import AlumnoPage from './pages/AlumnoPage.jsx';
+import ActividadesPage from './pages/ActividadesPage.jsx';
 import AsistenciaPage from './pages/AsistenciaPage.jsx';
 import NotasPage from './pages/NotasPage.jsx';
 
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
             {
                 path: "alumnos",
                 element: <AlumnoPage />
+            },
+            {
+                path: "actividades",
+                element: <ActividadesPage />
             },
             {
                 path: "asistencia",

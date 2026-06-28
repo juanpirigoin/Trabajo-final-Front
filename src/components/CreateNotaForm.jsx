@@ -9,6 +9,7 @@ function CreateNotaForm() {
         IdActividad: "",
         Nota: "",
     });
+    
     const [alumnoSeleccionado, setAlumnoSeleccionado] = useState("");
     const { error, postNota } = usePostNota();
     const { error: errorAlumno, loading: loadingAlumnos, alumnos = [] } = useGetAlumnos();

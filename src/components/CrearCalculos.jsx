@@ -1,6 +1,6 @@
 import React from "react";
 
-function Calculos({ Notas, IdAlumno }) {
+function CrearCalculos({ Notas, IdAlumno }) {
   const idActividades = [...new Set(Notas.map(a => a.IdActividad))];
   const cantidadActividades = idActividades.length;
   const notasAlumno = Notas.filter(n => n.IdAlumno === IdAlumno);
@@ -42,4 +42,4 @@ function Calculos({ Notas, IdAlumno }) {
   );
 }
 
-export default Calculos;
+export default CrearCalculos;
