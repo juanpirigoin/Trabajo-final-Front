@@ -6,15 +6,15 @@ function Header() {
   return (
     <header className="navbar">
       <NavLink to="/" className="navbar-brand" end>
-        <i className="fa-solid fa-school navbar-logo-icon"></i>
-        <span className="navbar-brand-name">Gestión Escolar</span>
+        {/* <i className="fa-solid fa-school navbar-logo-icon"></i> */}
+        <span className="navbar-brand-name">1° año - Matematica</span>
       </NavLink>
 
       <nav>
         <ul className="navbar-links">
           <li>
             <NavLink to="/actividades" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
-              <i class="fa-solid fa-list-ul"></i>
+              <i className="fa-solid fa-list-ul"></i>
               Actividades
             </NavLink>
           </li>

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "../styles/global.css";
-import "../styles/NotasPage.css";
+import "../styles/notas-page.css";
 import CajaBotones from "../components/CajaBotones";
 import Encabezado from "../components/Encabezado";
-import NotasCards from "../components/NotasCards";
-import CreateNotaForm from "../components/CreateNotaForm";
+import NotasCards from "../components/notas/NotasCards";
+import CreateNotaForm from "../components/notas/CreateNotaForm.jsx";
 
 function NotasPage() {
   const [mostrarNotas, setMostrarNotas] = useState(false);

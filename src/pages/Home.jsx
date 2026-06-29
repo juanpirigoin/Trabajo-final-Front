@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Home.css';
+import '../styles/home.css';
 
 function Home() {
   return (
@@ -32,6 +32,14 @@ function Home() {
             <i className="fa-solid fa-file-invoice card-icon"></i>
             <h3>Registro de Notas</h3>
             <p>Cargar calificaciones y visualizar el rendimiento académico.</p>
+          </div>
+        </Link>
+
+        <Link to="/actividades" className="card-link">
+          <div className="dashboard-card">
+            <i className="fa-solid fa-list-ul card-icon"></i>
+            <h3>Gestión de Actividades</h3>
+            <p>Crear, modificar y gestionar las actividades.</p>
           </div>
         </Link>
       </div>

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import calendario from "../assets/calendario.png";
 import "../styles/global.css";
-import "../styles/AsistenciaPage.css";
+import "../styles/asistencia-page.css";
 import CajaBotones from "../components/CajaBotones";
 import Encabezado from "../components/Encabezado";
-import AsistenciaCards from "../components/AsistenciaCards";
-import TomarAsistenciaCards from "../components/TomarAsistenciaCards";
+import AsistenciaCards from "../components/asistencia/AsistenciaCards";
+import TomarAsistenciaCards from "../components/asistencia/TomarAsistenciaCards";
 
 function AsistenciaPage() {
   const [mostrarAsistencia, setMostrarAsistencia] = useState(false);

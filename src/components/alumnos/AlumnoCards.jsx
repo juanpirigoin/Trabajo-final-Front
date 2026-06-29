@@ -1,6 +1,6 @@
 import React from "react";
-import useGetAlumnos from "../hooks/alumnos/useGetAlumnos";
-import useDeleteAlumno from "../hooks/alumnos/useDeleteAlumno";
+import useGetAlumnos from "../../hooks/alumnos/useGetAlumnos";
+import useDeleteAlumno from "../../hooks/alumnos/useDeleteAlumno";
 
 function AlumnoCards({ onEditar }) {
   const { error, loading, alumnos = [], getAlumnos } = useGetAlumnos();

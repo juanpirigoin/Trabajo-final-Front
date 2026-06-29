@@ -1,7 +1,7 @@
 import React from 'react';
-import useGetAsistencias from "../hooks/asistencias/useGetAsistencias.jsx";
-import useGetAlumnos from "../hooks/alumnos/useGetAlumnos.jsx";
-import cambiarFormatoFecha from "../utils/CambiarFormatoFecha.js";
+import useGetAsistencias from "../../hooks/asistencias/useGetAsistencias.jsx";
+import useGetAlumnos from "../../hooks/alumnos/useGetAlumnos.jsx";
+import FormatoFechaDDMM from "../../utils/FormatoFechaDDMM.js";
 
 function AsistenciaCards() {
   const { error, loading, asistencias = [] } = useGetAsistencias();
@@ -24,7 +24,7 @@ function AsistenciaCards() {
         <p>Fechas:</p>
         <ul>
           {listaFechas.map((fecha, index) => (
-            <li key={index}>{cambiarFormatoFecha(fecha)}</li>
+            <li key={index}>{FormatoFechaDDMM(fecha)}</li>
           ))}
         </ul>
       </div>

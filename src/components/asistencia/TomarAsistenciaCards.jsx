@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import useGetAsistencias from "../hooks/asistencias/useGetAsistencias";
-import usePostAsistencias from "../hooks/asistencias/usePostAsistencias";
-import FechaActual from '../utils/FechaActual';
-import useGetAlumnos from "../hooks/alumnos/useGetAlumnos";
+import useGetAsistencias from "../../hooks/asistencias/useGetAsistencias";
+import usePostAsistencias from "../../hooks/asistencias/usePostAsistencias";
+import FechaActual from '../../utils/FechaActual';
+import useGetAlumnos from "../../hooks/alumnos/useGetAlumnos";
 
 function TomarAsistenciaCards() {
   const { error: errorGet, loading, asistencias = [] } = useGetAsistencias();

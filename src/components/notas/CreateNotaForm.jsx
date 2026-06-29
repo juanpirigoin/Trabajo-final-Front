@@ -1,6 +1,6 @@
-import usePostNota from '../hooks/notas/usePostNota';
+import usePostNota from '../../hooks/notas/usePostNota';
 import React, { useState } from "react";
-import useGetAlumnos from "../hooks/alumnos/useGetAlumnos";
+import useGetAlumnos from "../../hooks/alumnos/useGetAlumnos";
 
 function CreateNotaForm() {
     const [form, setForm] = useState({

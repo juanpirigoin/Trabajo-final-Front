@@ -4,7 +4,7 @@
    =================================================== */
 
 /* Card de alumno con sus notas */
-.nota-card {
+.nota-card, .unidad-card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -19,7 +19,7 @@
   box-shadow: var(--shadow-card-hover);
 }
 
-.nota-card h2 {
+.nota-card h2, .unidad-card h2 {
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--color-text);

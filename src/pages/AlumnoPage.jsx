@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import alumnos from "../assets/alumnos.png";
 import "../styles/global.css";
-import "../styles/AlumnoPage.css";
+import "../styles/alumno-page.css";
 import CajaBotones from "../components/CajaBotones";
 import Encabezado from "../components/Encabezado";
-import AlumnoCards from "../components/AlumnoCards";
-import CreateAlumnoForm from "../components/CreateAlumnoForm";
-import ModificarAlumno from "../components/ModificarAlumno";
+import AlumnoCards from "../components/alumnos/AlumnoCards";
+import CreateAlumnoForm from "../components/alumnos/CreateAlumnoForm";
+import ModificarAlumno from "../components/alumnos/ModificarAlumno";
 
 function AlumnoPage() {
   const [mostrarAlumnos, setMostrarAlumnos] = useState(false);
