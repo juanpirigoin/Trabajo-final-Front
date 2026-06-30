@@ -2,6 +2,8 @@ import React from 'react';
 import useGetAsistencias from "../../hooks/asistencias/useGetAsistencias.jsx";
 import useGetAlumnos from "../../hooks/alumnos/useGetAlumnos.jsx";
 import FormatoFechaDDMM from "../../utils/FormatoFechaDDMM.js";
+import PorcentajeAsistencia from './PorcentajeAsistencia.jsx';
+
 
 function AsistenciaCards() {
   const { error, loading, asistencias = [] } = useGetAsistencias();
@@ -16,6 +18,11 @@ function AsistenciaCards() {
 
   const listaIdAlumnos = [...new Set(asistencias.map(a => a.IdAlumno))];
   const listaFechas = [...new Set(asistencias.map(a => a.Fecha))];
+  // console.log(listaFechas)
+
+  //ordeno las fechas  y guardo las ultimas 10
+  const fechasOrdenadas = listaFechas.sort((a, b) => new Date(a) - new Date(b));
+  const ultimasFechas = fechasOrdenadas.slice(-10);
 
   return (
     <>
@@ -23,7 +30,7 @@ function AsistenciaCards() {
       <div className="fechas-bar">
         <p>Fechas:</p>
         <ul>
-          {listaFechas.map((fecha, index) => (
+          {ultimasFechas.map((fecha, index) => (
             <li key={index}>{FormatoFechaDDMM(fecha)}</li>
           ))}
         </ul>
@@ -34,7 +41,7 @@ function AsistenciaCards() {
         <div key={idAlumno} id={`alumno-${idAlumno}`} className="historial-card">
           <p>{alumnos.find((a) => a.IdAlumno === idAlumno)?.Nombre} {alumnos.find((a) => a.IdAlumno === idAlumno)?.Apellido}</p>
           <ul>
-            {listaFechas.map((fecha) => {
+            {ultimasFechas.map((fecha) => {
               const registro = asistencias.find(
                 (a) => a.IdAlumno === idAlumno && a.Fecha === fecha
               );
@@ -49,6 +56,7 @@ function AsistenciaCards() {
               );
             })}
           </ul>
+          <PorcentajeAsistencia ListaFechas={listaFechas} Asistencias={asistencias} IdAlumno={idAlumno} />
         </div>
       ))}
     </>

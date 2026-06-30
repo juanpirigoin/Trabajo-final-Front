@@ -6,7 +6,7 @@ function Home() {
   return (
     <div className="home-dashboard">
       <div className="welcome-banner">
-        <h1>Sistema de Gestión Escolar</h1>
+        <h1>Sistema de Gestión de Curso</h1>
         <p>Bienvenido al panel de administración. Seleccione una de las siguientes opciones para comenzar:</p>
       </div>
 

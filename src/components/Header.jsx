@@ -7,7 +7,7 @@ function Header() {
     <header className="navbar">
       <NavLink to="/" className="navbar-brand" end>
         {/* <i className="fa-solid fa-school navbar-logo-icon"></i> */}
-        <span className="navbar-brand-name">1° año - Matematica</span>
+        <span className="navbar-brand-name">Sistema de Gestión de Curso</span>
       </NavLink>
 
       <nav>
