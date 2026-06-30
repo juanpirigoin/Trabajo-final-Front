@@ -73,7 +73,6 @@ body {
   flex-direction: column;
   flex: 1;
   padding: 24px;
-  overflow-x: auto;
 }
 
 /* --- Encabezado de sección (título + fecha + ícono) --- */

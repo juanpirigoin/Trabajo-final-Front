@@ -35,9 +35,8 @@ function AsistenciaCards() {
           ))}
         </ul>
       </div>
-
       {/* Historial de asistencia por alumno */}
-      {listaIdAlumnos.map((idAlumno) => (
+      {listaIdAlumnos.map((idAlumno) => (        
         <div key={idAlumno} id={`alumno-${idAlumno}`} className="historial-card">
           <p>{alumnos.find((a) => a.IdAlumno === idAlumno)?.Nombre} {alumnos.find((a) => a.IdAlumno === idAlumno)?.Apellido}</p>
           <ul>
@@ -45,6 +44,7 @@ function AsistenciaCards() {
               const registro = asistencias.find(
                 (a) => a.IdAlumno === idAlumno && a.Fecha === fecha
               );
+              
               return (
                 <li key={fecha}>
                   {registro ? (

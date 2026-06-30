@@ -19,9 +19,9 @@ function PorcentajeAsistencia({ ListaFechas, Asistencias, IdAlumno }) {
     porcentajePresente >= 70 ? "buena" : porcentajePresente >= 50 ? "regular" : "mala";
 
   return (
-    <p className={`nota-stat-value ${colorAsistencia}`}>
-      {porcentajePresente}%
-    </p>
+      <p className={`nota-stat-value ${colorAsistencia}`} style={{ textAlign: "right" }}>
+        {porcentajePresente.toFixed(2)}%
+      </p>
   )
 
 }
